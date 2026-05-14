@@ -1,0 +1,30 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 28,
+    "spacing": 4,
+    "margin-top": 4,
+    "margin-bottom": 4,
+    "margin-left": 400,
+    "margin-right": 400,
+    "modules-center": ["wlr/taskbar"],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 28,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize"
+    }
+}
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 28,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize"
+    }
+}

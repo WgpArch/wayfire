@@ -1,0 +1,200 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "spacing": 4,
+    "margin-top": 0,
+    "margin-bottom":0,
+    "modules-left":[  "custom/launcher", "custom/player"],
+    "modules-center":["clock", "custom/weather"],
+    "modules-right":["tray", "network", "battery", "disk", "cpu", "temperature", "memory", "pulseaudio", "custom/notification", "custom/power"],
+
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": " {name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+   "sway/language": {
+        "format": " {}",    
+        "format": "{icon}",
+        "format-icons": {
+        "activated": "",
+        "deactivated": ""
+        }
+    },
+ 
+    "custom/launcher": {
+        "format": "{} ",
+        "interval": 3600,
+        "on-click": "rofi -show drun -theme ~/.config/rofi/sleek-dark.rasi",
+        "tooltip": true,
+        "tooltip-format": "btw 😎"
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "clock": {
+        "interval": 1,
+        "tooltip-format": "<big>{:%b %d}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%b %d %H:%M:%S %p}",
+        "format-alt": "{:%Y-%m-%d}",
+        "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "week-pos": "right",
+        "on-scroll": 1,
+        "format": {
+        "months":     "<span><b>{}</b></span>",
+        "days":       "<span><b>{}</b></span>",
+        "weeks":      "<span><b>W{}</b></span>",
+        "weekdays":   "<span><b>{}</b></span>",
+        "today":      "<span><b><u>{}</u></b></span>"
+            }
+     },
+        "actions":  {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+        }
+    },
+
+
+    "network": {
+       "interface": "wlp2s0",
+       "format": "⚠  Disabled",
+       "format-wifi": "  {essid}",
+       "format-ethernet": "  Wired",
+       "format-disconnected": "⚠  Disconnected",
+       "on-click": "nm-connection-editor"
+   },
+
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 300,
+        "exec": "~/.config/waybar/scripts/weather.py",
+        "return-type": "json"
+   },
+
+
+    "pulseaudio": {
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [" ", "   "]
+        },
+        "on-click": "pavucontrol",
+        "min-length": 13
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} ",
+        "format-icons": {
+        "notification": "<span foreground='red'><sup><small></small></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup><small></small></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup><small></small></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup><small></small></sup></span>",
+        "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+      },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": true,
+        "on-click": "xfce4-terminal btop &"
+    },
+    "memory": {
+        "format": "  {}%",
+		"tooltip": true,
+		"on-click": "xfce4-terminal btop &"
+    },
+    "temperature": {
+        "interval": 10,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+        "critical-threshold": 100,
+        "format-critical": " {temperatureC}",
+        "format": " {temperatureC}°C"
+    },
+
+    "battery": {
+        "states": {
+	"good": 95,
+        "warning": 30,
+        "critical": 20
+        },
+        "on-click-middle": "xfce-terminal acpi -i",
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time}  {icon}",
+        "format-icons": ["", "", "", "", ""]        
+    },
+    
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{used} | {total}"
+  },
+
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "~/.config/waybar1/rofi_powermenu",
+        "on-click-right": "killall rofi",
+        "format": "⏻ "
+
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+},
+
+   "custom/player": {
+       "format": "🎵 {}",
+       "exec": "~/.config/waybar/scripts/player.sh",
+       "interval": 3,
+       "max-length": 25,
+       "tooltip": true,
+       "return-type": "text"
+   
+       }
+}

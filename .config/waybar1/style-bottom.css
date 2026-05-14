@@ -1,0 +1,38 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Z003 Font-Awsome;
+    min-height: 0;
+}
+
+/* Window background - this creates the dock background */
+window#waybar {
+    background-color: rgba(56, 60, 74, 0.95);
+    border-radius: 16px;
+    color: #ffffff;
+    padding: 4px 12px;
+}
+
+/* Taskbar container */
+#wlr-taskbar {
+    padding: 4px 8px;
+    margin: 0;
+}
+
+/* Individual app buttons */
+#wlr-taskbar button {
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+}
+
+#wlr-taskbar button:hover {
+    background: rgba(122, 162, 247, 0.4);
+}
+
+#wlr-taskbar button.active {
+    background: #7aa2f7;
+    color: #1a1b26;
+}
